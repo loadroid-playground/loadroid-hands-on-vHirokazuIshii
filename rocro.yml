@@ -1,16 +1,16 @@
 loadroid:
   requests:
-    status:
+    top:
       method: GET
       # the url to verify host is below
       # https://demo-dot-impressive-kite-93206.appspot.com/debug-verify-host-{{verification-token}}
-      url: https://demo-dot-impressive-kite-93206.appspot.com/api/1/status
+      url: http://http://www.perf-sol.com/
   scenarios:
-    status:
-      num-users: 50
-      period: 50
+    scenario_01:
+      num-users: 5
+      period: 5
       loop: true
       requests:
-        - status
+        - top
   run:
-    - status
+    - scenario_01
