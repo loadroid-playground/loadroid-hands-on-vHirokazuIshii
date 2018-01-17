@@ -7,8 +7,8 @@ loadroid:
       url: http://http://www.perf-sol.com/
   scenarios:
     scenario_01:
-      num-users: 5
-      period: 5
+      num-users: 1
+      period: 1
       loop: true
       requests:
         - top
