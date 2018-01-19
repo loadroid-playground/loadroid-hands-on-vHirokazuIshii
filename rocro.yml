@@ -9,14 +9,14 @@ loadroid:
       method: GET
       url: http://www.perf-sol.com/login
       after:
-        auth: $('response').json.user_session\[login\]
+        auth: $('response').json.user_session[login]
     login:
       method: POST
       url: http://www.perf-sol.com/user_session
       body:
         authenticity_token: << $('auth')
-        user_session%5Blogin%5D:admin
-        user_session%5Bpassword%5B:password
+        user_session[login]:admin
+        user_session[password]:password
         commit:login
       
   scenarios:
