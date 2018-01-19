@@ -8,9 +8,16 @@ loadroid:
     display-login-form:
       method: GET
       url: http://www.perf-sol.com/login
+      after:
+        auth: $('response').json.user_session[login]
     login:
       method: POST
       url: http://www.perf-sol.com/user_session
+      body:
+        authenticity_token: << $('auth')
+        user_session[login]:admin
+        user_session[password]:password
+        commit:ログイン
       
   scenarios:
     scenario_01:
