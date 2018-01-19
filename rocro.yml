@@ -5,6 +5,13 @@ loadroid:
       # the url to verify host is below
       # https://demo-dot-impressive-kite-93206.appspot.com/debug-verify-host-{{verification-token}}
       url: http://www.perf-sol.com/
+    display-login-form:
+      method: GET
+      url: http://www.perf-sol.com/login
+    login:
+      method: POST
+      url: http://www.perf-sol.com/user_session
+      
   scenarios:
     scenario_01:
       num-users: 1
@@ -12,5 +19,7 @@ loadroid:
       loop: true
       requests:
         - top
+        - display-login-form
+        - login
   run:
     - scenario_01
