@@ -15,8 +15,8 @@ loadroid:
       url: http://www.perf-sol.com/user_session
       body:
         authenticity_token: << $('auth')
-        user_session\[login\]:admin
-        user_session\[password\]:password
+        user_session%5Blogin%5D:admin
+        user_session%5Bpassword%5B:password
         commit:login
       
   scenarios:
