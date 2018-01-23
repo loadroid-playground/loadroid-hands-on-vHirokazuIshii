@@ -13,12 +13,14 @@ loadroid:
     login:
       method: POST
       url: http://www.perf-sol.com/user_session
+      header:
+        content-type: application/x-www-form-urlencoded
       body:
         authenticity_token: << $('auth')
-        user_session[login]:admin
-        user_session[password]:password
-        commit:login
-      
+        user_session[login]: admin
+        user_session[password]: password
+        commit: login
+
   scenarios:
     scenario_01:
       num-users: 1
