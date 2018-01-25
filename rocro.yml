@@ -2,14 +2,14 @@ loadroid:
   requests:
     top:
       method: GET
-      # the url to verify host is below
-      # https://demo-dot-impressive-kite-93206.appspot.com/debug-verify-host-{{verification-token}}
       url: http://www.perf-sol.com/
+      
     display-login-form:
       method: GET
       url: http://www.perf-sol.com/login
       after:
         auth: $('response').json.user_session[login]
+        
     login:
       method: POST
       url: http://www.perf-sol.com/user_session
@@ -20,15 +20,27 @@ loadroid:
         user_session[login]: admin
         user_session[password]: password
         commit: login
+      after:
+        auth: $('response').json.user_session[login]
+        
+    listing-deal:
+      method: GET
+      url: http://www.perf-sol.com/nego/deals
+      header:
+        content-type: application/x-www-form-urlencoded
+      body:
+         authenticity_token: << $('auth')
 
   scenarios:
     scenario_01:
-      num-users: 1
-      period: 1
+      num-users: 5
+      period: 5
       loop: true
       requests:
         - top
         - display-login-form
         - login
+        - listing-deal
+  
   run:
     - scenario_01
