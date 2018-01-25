@@ -8,7 +8,7 @@ loadroid:
       method: GET
       url: http://www.perf-sol.com/login
       after:
-        auth: $('response').json.user_session[login]
+        auth: $('response').csrf-token
         
     login:
       method: POST
@@ -21,7 +21,7 @@ loadroid:
         user_session[password]: password
         commit: login
       after:
-        auth: $('response').json.user_session[login]
+        auth: $('response').csrf-token
         
     listing-deal:
       method: GET
